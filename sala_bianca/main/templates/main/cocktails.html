@@ -1,0 +1,261 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Cocktails{% endblock %}
+
+{% block body %}
+
+<section id="cocktailsnavbar" class="bg-cover h-[50vh] md:h-[100vh] flex flex-col scrollAnimation overflow-hidden">
+    <!-- Navbar -->
+    <nav class="relative container mx-auto p-6">
+        <!-- Flexbox Container -->
+        <div class="flex items-center justify-between">
+            <a href="{% url 'index' %}" class="flex items-center text-white">
+                <div class="sala text-4xl font-medium italic ffPD">Sala Bianca</div>
+            </a>
+
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-7 lg:space-x-12 font-semibold text-white lg:pe-4">
+                <a href="{% url 'menu' %}" class="relative hoveredover">Menu</a>
+                <a href="{% url 'reservations' %}" class="relative hoveredover">Reservations</a>
+                <a href="{% url 'contact' %}" class="relative hoveredover">Contact</a>
+                <a href="{% url 'about' %}" class="relative hoveredover">About Us</a>
+
+                <!-- Icons -->
+                <div class="hidden md:block space-x-2">
+                    <a href="https://www.instagram.com/sala_bianca1998/">
+                        <i class="firstIcon icon fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                        <i class="firstIcon icon fa-brands fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <i class="firstIcon icon fa-regular fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <button id="responsiveButton" class="block md:hidden">
+                <span class="linetop"></span>
+                <span class="linemiddle"></span>
+                <span class="linebottom"></span>
+            </button>
+
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="menu-wrap" class="md:hidden">
+            <div id="menu" class="text-lg flex flex-col items-center py-8 mt-5 gap-8 rounded-sm font-semibold">
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'reservations' %}">Reservations</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'about' %}">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="title" class="unfade flex flex-1 justify-center items-center text-4xl md:text-7xl text-white ffPD">COCKTAIL MENU</div>
+
+</section>
+
+<section id="menusection" class="bg-cover ffPD">
+    <div class="pt-10 ps-5 md:ps-10 text-2xl md:text-3xl font-bold">Drinks</div>
+    <div id="menuarea" class="grid p-5 md:p-10 gap-y-4 gap-x-10 font-medium">
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Simple Drink</div>
+                <div class="text-sm md:text-base pe-2">Whiskey - Vodka - Gin - Tequila - Rum - Coniac - Liqueur</div>
+                <div class="text-sm md:text-base">50ml</div>
+            </div>
+            <div class="text-sm md:text-base">€7,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Special Drink</div>
+                <div class="text-sm md:text-base pe-2">Whiskey - Vodka - Gin - Tequila</div>
+                <div class="text-sm md:text-base">50ml</div>
+            </div>
+            <div class="text-sm md:text-base">€7,50</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Special Drink</div>
+                <div class="text-sm md:text-base pe-2">Rum - Coniac - Liqueur</div>
+                <div class="text-sm md:text-base">50ml</div>
+            </div>
+            <div class="text-sm md:text-base">€8,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Premium Drink</div>
+                <div class="text-sm md:text-base pe-2">Whiskey - Vodka - Gin - Tequila - Rum - Coniac - Liqueur</div>
+                <div class="text-sm md:text-base">50ml</div>
+            </div>
+            <div class="text-sm md:text-base">€13,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Normal Bottle</div>
+                <div class="text-sm md:text-base">700ml</div>
+            </div>
+            <div class="text-sm md:text-base">€70,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Special Bottle</div>
+                <div class="text-sm md:text-base">700ml</div>
+            </div>
+            <div class="text-sm md:text-base">€80,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Champagne</div>
+                <div class="text-sm md:text-base">200ml</div>
+            </div>
+            <div class="text-sm md:text-base">€7,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Ouzo</div>
+                <div class="text-sm md:text-base">60ml</div>
+            </div>
+            <div class="text-sm md:text-base">€4,00</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Shot</div>
+                <div></div>
+            </div>
+            <div class="text-sm md:text-base">€3,00</div>
+        </div>
+    </div>
+
+    <div class="h-[1px] bg-black w-11/12 mx-auto"></div>
+
+    <div class="pt-10 ps-5 md:ps-10 text-2xl md:text-3xl font-bold">Cocktails</div>
+    <div id="menuarea" class="grid p-5 md:p-10 gap-y-4 gap-x-10 font-medium">
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Mojito</div>
+                <div class="text-sm md:text-base pe-2">hanava 3, lime, sugar, club soda, mint</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Margarita</div>
+                <div class="text-sm md:text-base pe-2">tequila, triple sec. lemon juice, salt</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Mai Tai</div>
+                <div class="text-sm md:text-base pe-2">havana 3, disaronno, triple sec, lemon juice</div>
+            </div>
+            <div class="text-sm md:text-base">€9</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Negroni</div>
+                <div class="text-sm md:text-base pe-2">campari, gin, sweet vermouth</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Cuba Libre</div>
+                <div class="text-sm md:text-base pe-2">havana 3, lime, cola</div>
+            </div>
+            <div class="text-sm md:text-base">€8</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Daquiri</div>
+                <div class="text-sm md:text-base pe-2">white rum, sugar syrup, lemon, juice</div>
+            </div>
+            <div class="text-sm md:text-base">€8</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Cosmopolitan</div>
+                <div class="text-sm md:text-base pe-2">vodka, triple sec,creme de casses, lemon juice</div>
+            </div>
+            <div class="text-sm md:text-base">€8,5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Aperol Spritz</div>
+                <div class="text-sm md:text-base pe-2">prosecco, aperol, club soda</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Bourbon Sour</div>
+                <div class="text-sm md:text-base pe-2">bourbon, lemon juice, sugar syrup, angostura bitters</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Caipirinha</div>
+                <div class="text-sm md:text-base pe-2">cachaca, lime, sugar syrup</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Dry Martini</div>
+                <div class="text-sm md:text-base pe-2">gin, martini dry</div>
+            </div>
+            <div class="text-sm md:text-base">€8</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Coffee Negroni</div>
+                <div class="text-sm md:text-base pe-2">campari, gin, sweet vermouth, homemade cold brew</div>
+            </div>
+            <div class="text-sm md:text-base">€9</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Espresso Martini</div>
+                <div class="text-sm md:text-base pe-2">one shot of espresso, vodka, kahlua</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Passion For Sala</div>
+                <div class="text-sm md:text-base pe-2">vodka, passion fruits, lemon juice, caramel syrup</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Lemon Pie</div>
+                <div class="text-sm md:text-base pe-2">vodka, lemon juice, vanilla syrup, lemon paste</div>
+            </div>
+            <div class="text-sm md:text-base">€9</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Santa Anna</div>
+                <div class="text-sm md:text-base pe-2">gin, aperol, tangerie syrup, lemon juice</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+        <div class="flex justify-between">
+            <div>
+                <div class="text-base md:text-xl font-semibold">Thy Name</div>
+                <div class="text-sm md:text-base pe-2">spiced rum, lemon juice, spicy mango syrup</div>
+            </div>
+            <div class="text-sm md:text-base">€8.5</div>
+        </div>
+    </div>
+
+</section>
+
+
+
+{% endblock %}

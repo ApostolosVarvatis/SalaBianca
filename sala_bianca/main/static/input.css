@@ -1,0 +1,426 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ---------------- MAIN CSS ---------------- */
+
+/* Responsive button */
+
+#menu {
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+}
+
+#menu-wrap {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s;
+}
+
+#menu-wrap.open-menu {
+    max-height: 300px;
+}
+
+#responsiveButton {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.2s;
+    position: relative;
+
+}
+
+.linetop,
+.linemiddle,
+.linebottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: white;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.linetop {
+    transform: translateY(7px);
+}
+
+.linemiddle {
+    transform: translateY(14px);
+}
+
+.linebottom {
+    transform: translateY(21px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: translateY(7px);
+}
+
+.open .linetop {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .linemiddle {
+    display: none;
+}
+
+.open .linebottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+#indexnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)) ,url('images/index/bg-2-fixed.jpg');
+    background-position: center 0px;
+}
+
+#aboutnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)) ,url('images/about/aboutnav.jpg');
+    background-position: center 0px;
+}
+
+#menunavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/index/woodrotate.jpg');
+    background-position: center 0px;
+}
+
+#cocktailsnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/menu/cocktailscut.jpg');
+    background-position: center 0px;
+}
+
+#beersnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/menu/beerglasscut.jpg');
+    background-position: center 0px;
+}
+
+#winesnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/menu/winescut.jpg');
+    background-position: center 0px;
+}
+
+#coffeesnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/menu/coffeecupcut.jpg');
+    background-position: center 0px;
+}
+
+#teasjuicesnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/menu/iceteacut.jpg');
+    background-position: center 0px;
+}
+
+#beveragesnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/menu/beveragescut.jpg');
+    background-position: center 0px;
+}
+
+#reservationsnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/index/reservations.jpg');
+    background-position: center 0px;
+}
+
+#contactnavbar {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)) ,url('images/contactcut.jpg');
+    background-position: center 0px;
+}
+
+#gallerylinks {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)) ,url('images/index/woodrotate.jpg');
+}
+
+#details, #privatevents, #history-gallery, #footer, #itemsgallery, #menusection, #formarea, #errornavbar {
+    background-image: linear-gradient(0deg, rgba(248, 222, 126, 0.15), rgba(248, 222, 126, 0.15)) ,url('images/bgwhite.jpg');
+    background-attachment: fixed;
+}
+
+#photoleft {
+    background-image: url('images/index/beermachine.jpg');
+    background-position: center 37%;
+}
+
+#photoright {
+    background-image: url('images/index/martini.jpg');
+    background-position: center 50%;
+}
+
+#reservations {
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)) ,url('images/index/reservations.jpg');
+    background-position: center -550px;
+}
+
+.photoLabel {
+    height: 75px;
+    width: 150px;
+    background-color: rgba(245, 245, 220, 0.7);
+}
+
+.firstIcon {
+    color: white;
+}
+
+.lastIcon {
+    color: black;
+}
+
+.ffPD {
+    font-family: 'Playfair Display';
+}
+
+.smaller {
+    font-size: smaller;
+}
+
+
+
+/* About section */
+
+#photo {
+    background-image: url('/static/images/about/outside-view-original.jpg');
+    background-size: cover;
+    aspect-ratio: 1 / 1;
+    background-position: center center;
+    flex: 1;
+}
+
+@media (min-width: 1024px) {
+    #photo {
+        height: 350px; 
+    }
+}
+
+@media (min-width: 1536px) {
+    #photo {
+        height: 450px; 
+    }
+}
+
+#gallery {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(6, 1fr);
+}
+
+
+@media (min-width: 640px) {
+    
+    .card-big {
+        grid-row: span 3;
+        grid-column: span 3;
+    }
+
+    .card-small {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    
+}
+
+@media (max-width: 640px) {
+    
+    .card-big {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+
+    .card-small {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+    
+}
+
+
+/* Menu section */
+
+#itemsgallery {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(6, 1fr);
+}
+
+
+@media (min-width: 640px) {
+    
+    .card {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    
+}
+
+@media (max-width: 640px) {
+    
+    .card {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+
+}
+
+.menuPhotoLabel {
+    height: 75px;
+    width: 175px;
+    background-color: rgba(245, 245, 220, 0.7);
+}
+
+
+/* Menu item section */
+
+#menuarea, #menuareabeer {
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-auto-rows: 1fr;
+}
+
+@media (min-width: 1280px) {
+    
+    #menuareabeer {
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
+    
+}
+
+
+
+/* Reservation section */
+
+#reservationgallery {
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(4, 1fr);
+}
+
+@media (min-width: 640px) {
+    
+    .rescard {
+        grid-row: span 2;
+        grid-column: span 2;
+    }
+    
+}
+
+@media (max-width: 640px) {
+    
+    .rescard {
+        grid-row: span 2;
+        grid-column: span 3;
+    }
+
+}
+
+
+/* ---------------- TRANSITIONS ----------------  */
+
+/* Icons transition */
+
+.sala {
+    transition: all 0.7s;
+}
+
+.sala:hover {
+    letter-spacing: 1px;
+}
+
+.icon {
+    transition: all 0.5s;
+}
+
+.icon:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Text transition */
+
+.hoveredover::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: all 0.3s;
+}
+
+.hoveredover:hover::after {
+    width: 100%;
+}
+
+
+/* Button transition */
+
+.btn {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.resbtn {
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.resbtn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Image transition */
+
+#photoleft, #photoright, #photo, .card {
+    transition: all 0.5s;
+}
+
+#photoleft:hover, #photoright:hover, #photo:hover, .card:hover {
+    transform: scale(1.03);
+}
+
+
+/* ---------------- ANIMATIONS ----------------  */
+
+/* Title animation */
+
+@keyframes fade {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0%;
+    }
+}
+
+.fade {
+    animation: fade 0.4s ease-out forwards;
+}
+
+@keyframes unfade {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+.unfade {
+    animation: unfade 0.4s ease-in forwards;
+}
+
+@keyframes fadeInAndUp {
+    from {
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+.fadeInAndUp {
+    animation: fadeInAndUp 1.5s;
+}

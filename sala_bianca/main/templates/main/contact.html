@@ -1,0 +1,178 @@
+{% extends 'main/layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+
+    <!-- Messages -->
+    {% if error_msg %}
+        <div role="alert">
+            <div class="bg-red-500 text-white font-bold px-4 py-2">
+                Error
+            </div>
+            <div class="border border-t-0 border-red-400 bg-red-100 px-4 py-3 text-red-700">
+                <p>{{ error_msg }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if success_msg %}
+            <div role="alert">
+                <div role="alert">
+                    <div class="bg-green-500 text-white font-bold px-4 py-2">
+                        Success
+                    </div>
+                    <div class="border border-t-0 border-green-400 bg-green-100 px-4 py-3 text-green-700">
+                        <p>{{ success_msg }}</p>
+                    </div>
+                </div>
+            </div>
+    {% endif %}
+
+<section id="contactnavbar" class="bg-cover h-[50vh] md:h-[75vh] flex flex-col scrollAnimation overflow-hidden">
+    <!-- Navbar -->
+    <nav class="relative container mx-auto p-6">
+        <!-- Flexbox Container -->
+        <div class="flex items-center justify-between">
+            <a href="{% url 'index' %}" class="flex items-center text-white">
+                <div class="sala text-4xl font-medium italic ffPD">Sala Bianca</div>
+            </a>
+
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-7 lg:space-x-12 font-semibold text-white lg:pe-4">
+                <a href="{% url 'menu' %}" class="relative hoveredover">Menu</a>
+                <a href="{% url 'reservations' %}" class="relative hoveredover">Reservations</a>
+                <a href="{% url 'contact' %}" class="relative hoveredover">Contact</a>
+                <a href="{% url 'about' %}" class="relative hoveredover">About Us</a>
+
+                <!-- Icons -->
+                <div class="hidden md:block space-x-2">
+                    <a href="https://www.instagram.com/sala_bianca1998/">
+                        <i class="firstIcon icon fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                        <i class="firstIcon icon fa-brands fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <i class="firstIcon icon fa-regular fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <button id="responsiveButton" class="block md:hidden">
+                <span class="linetop"></span>
+                <span class="linemiddle"></span>
+                <span class="linebottom"></span>
+            </button>
+
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="menu-wrap" class="md:hidden">
+            <div id="menu" class="text-lg flex flex-col items-center py-8 mt-5 gap-8 rounded-sm font-semibold">
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'reservations' %}">Reservations</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'about' %}">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="title" class="unfade flex flex-1 justify-center items-center text-4xl md:text-7xl text-white ffPD">CONTACT US</div>
+
+</section>
+
+
+<section id="details" class="bg-cover">
+    <div class="pt-10 p-4 sm:p-8 sm:pt-10 lg:p-16 flex flex-wrap lg:flex-nowrap gap-y-10 justify-center items-start">
+        <div class="flex flex-col gap-y-4 w-full justify-center items-center p-2 pt-0 text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold ffPD">VISIT SALA BIANCA</h2>
+            <h2 class="text-base md:text-lg italic">Themistokli Sofouli 2, Thessaloniki 546 46</h2>
+            <a href="https://goo.gl/maps/pFUziseRFLcERCXE6" class="font-semibold underline underline-offset-2">GET DIRECTIONS</a>
+        </div>
+        <div class="flex flex-col gap-y-4 w-full justify-center items-center p-2 pt-0 text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold ffPD">CONTACT US</h2>
+            <a href="https://www.google.com/search?q=sala+bianca" class="text-base md:text-lg italic font-semibold underline underline-offset-2">(+30) 2310-427-159</a>
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="text-base md:text-lg font-semibold underline underline-offset-2">antonis1200@yahoo.gr</a> 
+            <div class="space-x-2 text-base lg:text-lg">
+                <a href="https://www.instagram.com/sala_bianca1998/">
+                    <i class="firstIcon icon fa-brands fa-instagram fa-lg lastIcon"></i>
+                </a>
+                <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                    <i class="firstIcon icon fa-brands fa-facebook fa-lg lastIcon"></i>
+                </a>
+                <a href="{% url 'contact' %}">
+                    <i class="firstIcon icon fa-regular fa-envelope fa-lg lastIcon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-[1px] bg-black w-11/12 mx-auto"></div>
+
+    <div class="p-4 sm:p-12 lg:p-28 lg:pt-16 flex flex-wrap lg:flex-nowrap gap-y-10 gap-x-28 justify-center items-start">
+        <div id="formbox" class="flex w-full justify-center items-center p-2 pt-0">
+            <form action="{% url 'contact' %}" method="POST" class="w-full">
+                {% csrf_token %}
+                <div class="flex flex-wrap -mx-3">
+                    <div class="px-3 mb-4 w-full sm:w-1/2">
+                        <label for="first_name" class="block font-semibold text-sm text-gray-700">First Name</label>
+                        {% render_field form.first class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                    </div>
+                    <div class="px-3 mb-4 w-full sm:w-1/2">
+                        <label for="last_name" class="block font-semibold text-sm text-gray-700">Last Name</label>
+                        {% render_field form.last class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block font-semibold text-sm text-gray-700">Email</label>
+                    {% render_field form.email class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                </div>
+                <div class="mb-4">
+                    <label for="subject" class="block font-semibold text-sm text-gray-700">Subject</label>
+                    {% render_field form.subject class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                </div>
+                <div class="mb-4">
+                    <label for="content" class="block font-semibold text-sm text-gray-700">Message</label>
+                    {% render_field form.content rows="3" placeholder="Ask us anything!" class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="border-2 border-black rounded-sm px-4 py-2 font-semibold text-black bg-transparent resbtn">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="w-full">
+            <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4284.385050157513!2d22.959998615778854!3d40.596405194034986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a838d5b7539169%3A0x54ccea62472b9d49!2sSala%20Bianca%20est.1998!5e0!3m2!1sel!2sgr!4v1692827133915!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+
+
+
+<section id="formarea" class="bg-cover">
+    <div class="container mx-auto py-14 flex flex-wrap lg:flex-nowrap justify-center items-center">
+        <div id="formdetails">
+            <div id="formtext" class="">
+                <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit, suscipit!</h2>
+                <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis doloremque 
+                    voluptate molestias amet laborum voluptas esse sint ipsam quisquam dignissimos 
+                    impedit deleniti doloribus distinctio illo ratione minus fugit officiis 
+                    suscipit autem debitis nulla, quas excepturi nesciunt. Obcaecati maxime totam 
+                    dolore natus autem adipisci! In dolorum iure nisi nostrum numquam fugiat 
+                    similique, quibusdam saepe est molestiae sint vero, perspiciatis ipsam itaque!
+                </h2>
+            </div>
+            <div id="itemsgallery" class=""></div>
+        </div>
+        <div class="formbox"></div>
+    </div>
+
+</section>
+
+

@@ -1,0 +1,161 @@
+{% extends 'main/layout.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Reservations{% endblock %}
+
+{% block body %}
+
+    <!-- Messages -->
+    {% if error_msg %}
+        <div role="alert">
+            <div class="bg-red-500 text-white font-bold px-4 py-2">
+                Error
+            </div>
+            <div class="border border-t-0 border-red-400 bg-red-100 px-4 py-3 text-red-700">
+                <p>{{ error_msg }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if success_msg %}
+            <div role="alert">
+                <div role="alert">
+                    <div class="bg-green-500 text-white font-bold px-4 py-2">
+                        Success
+                    </div>
+                    <div class="border border-t-0 border-green-400 bg-green-100 px-4 py-3 text-green-700">
+                        <p>{{ success_msg }}</p>
+                    </div>
+                </div>
+            </div>
+    {% endif %}
+
+<section id="reservationsnavbar" class="bg-cover h-[50vh] md:h-[75vh] flex flex-col scrollAnimation overflow-hidden">
+    <!-- Navbar -->
+    <nav class="relative container mx-auto p-6">
+        <!-- Flexbox Container -->
+        <div class="flex items-center justify-between">
+            <a href="{% url 'index' %}" class="flex items-center text-white">
+                <div class="sala text-4xl font-medium italic ffPD">Sala Bianca</div>
+            </a>
+
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-7 lg:space-x-12 font-semibold text-white lg:pe-4">
+                <a href="{% url 'menu' %}" class="relative hoveredover">Menu</a>
+                <a href="{% url 'reservations' %}" class="relative hoveredover">Reservations</a>
+                <a href="{% url 'contact' %}" class="relative hoveredover">Contact</a>
+                <a href="{% url 'about' %}" class="relative hoveredover">About Us</a>
+
+                <!-- Icons -->
+                <div class="hidden md:block space-x-2">
+                    <a href="https://www.instagram.com/sala_bianca1998/">
+                        <i class="firstIcon icon fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                        <i class="firstIcon icon fa-brands fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <i class="firstIcon icon fa-regular fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <button id="responsiveButton" class="block md:hidden">
+                <span class="linetop"></span>
+                <span class="linemiddle"></span>
+                <span class="linebottom"></span>
+            </button>
+
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="menu-wrap" class="md:hidden">
+            <div id="menu" class="text-lg flex flex-col items-center py-8 mt-5 gap-8 rounded-sm font-semibold">
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'reservations' %}">Reservations</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'about' %}">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="title" class="unfade flex flex-1 justify-center items-center text-4xl md:text-7xl text-white ffPD">RESERVATIONS</div>
+
+</section>
+
+<section id="formarea" class="bg-cover">
+
+    <div class="p-4 sm:p-12 lg:p-28 flex flex-wrap lg:flex-nowrap gap-y-10 gap-x-28 justify-center items-start">
+        <div id="formdetails" class="w-full text-center lg:text-start">
+            <h2 class="text-lg mb-4 font-semibold">We love a good celebration. If you have a special occasion coming up, we have just the space for you.</h2>
+            <h2 class="text-base mb-2">We are located on <a href="https://goo.gl/maps/pFUziseRFLcERCXE6" class="font-semibold underline underline-offset-2">Themistokli Sofouli 2</a>.
+            </h2>
+            <h2 class="text-base mb-2">We have a <span class="font-semibold">maximum capacity for 100 
+                guests</span> for cocktails and food platters.
+            </h2>
+            <h2 class="text-base mb-6">For further questions or for more information on availability and room rates call us on 
+                <a href="https://www.google.com/search?q=sala+bianca" class="italic font-semibold underline underline-offset-2">(+30) 2310-427-159</a> or email us at 
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="font-semibold underline underline-offset-2">antonis1200@yahoo.gr</a>. 
+            </h2>
+            <div id="reservationgallery" class="grid gap-4">
+                <div class="image bg-cover aspect-square rescard" style="background-image: url('/static/images/reservations/interior1.jpg'); background-position: center bottom;">
+                </div>
+                <div class="image bg-cover aspect-square rescard" style="background-image: url('/static/images/reservations/interior2.jpg'); background-position: center center;">
+                </div>
+                <div class="image bg-cover aspect-square rescard" style="background-image: url('/static/images/reservations/interior3.jpg'); background-position: center center;">
+                </div>
+                <div class="image bg-cover aspect-square rescard" style="background-image: url('/static/images/reservations/interior4.jpg'); background-position: center bottom;">
+                </div>
+                <div class="image bg-cover aspect-square rescard" style="background-image: url('/static/images/reservations/interior5.jpg'); background-position: center center;">
+                </div>
+                <div class="image bg-cover aspect-square rescard" style="background-image: url('/static/images/reservations/interior6.jpg'); background-position: center center;">
+                </div>
+            </div>
+        </div>
+        <div id="formbox" class="flex w-full justify-center items-center p-2 pt-0">
+            <form action="{% url 'reservations' %}" method="post" class="w-full">
+                {% csrf_token %}
+                <div class="flex flex-wrap -mx-3">
+                    <div class="px-3 mb-4 w-full sm:w-1/2">
+                        <label for="first_name" class="block font-semibold text-sm text-gray-700">First Name</label>
+                        {% render_field form.first class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                    </div>
+                    <div class="px-3 mb-4 w-full sm:w-1/2">
+                        <label for="last_name" class="block font-semibold text-sm text-gray-700">Last Name</label>
+                        {% render_field form.last class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block font-semibold text-sm text-gray-700">Email</label>
+                    {% render_field form.email class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                </div>
+            
+                <div class="flex flex-wrap -mx-3">
+                    <div class="px-3 mb-4 w-full sm:w-1/2">
+                        <label for="phone_number" class="block font-semibold text-sm text-gray-700">Phone Number</label>
+                        {% render_field form.phonenumber class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                    </div>
+                    <div class="px-3 mb-4 w-full sm:w-1/2">
+                        <label for="guests_num" class="block font-semibold text-sm text-gray-700">Number of Guests</label>
+                        {% render_field form.guests_num min="4" max="100" class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required="" %}
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="content" class="block font-semibold text-sm text-gray-700">Additional Notes</label>
+                    {% render_field form.content rows="3" placeholder="Anything you want us to know?" class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" %}
+                </div>
+                <div class="mb-4 w-2/3">
+                    <label for="reservation_datetime" class="block font-semibold text-sm text-gray-700">Reservation Date and Time</label>
+                    <input type="datetime-local" name="reservation_datetime" class="mt-1 p-2 w-full border border-white rounded-sm focus:rounded-md focus:outline-none focus:bg-white focus:border-black" required>
+                </div>
+                <div class="mt-6">
+                    <button type="submit" class="border-2 border-black rounded-sm px-4 py-2 font-semibold text-black bg-transparent resbtn">Make Reservation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+

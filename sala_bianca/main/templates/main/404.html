@@ -1,0 +1,83 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block body %}
+
+<section id="errornavbar" class="bg-cover h-[50vh] flex flex-col scrollAnimation overflow-hidden">
+    <!-- Navbar -->
+    <nav class="relative container mx-auto p-6">
+        <!-- Flexbox Container -->
+        <div class="flex items-center justify-between">
+            <a href="{% url 'index' %}" class="flex items-center text-black">
+                <div class="sala text-4xl font-medium italic ffPD">Sala Bianca</div>
+            </a>
+
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-7 lg:space-x-12 font-semibold text-black lg:pe-4">
+                <a href="{% url 'menu' %}" class="relative hoveredover">Menu</a>
+                <a href="{% url 'reservations' %}" class="relative hoveredover">Reservations</a>
+                <a href="{% url 'contact' %}" class="relative hoveredover">Contact</a>
+                <a href="{% url 'about' %}" class="relative hoveredover">About Us</a>
+
+                <!-- Icons -->
+                <div class="hidden md:block space-x-2">
+                    <a href="https://www.instagram.com/sala_bianca1998/">
+                        <i class="lastIcon icon fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                        <i class="lastIcon icon fa-brands fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <i class="lastIcon icon fa-regular fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <button id="responsiveButton" class="block md:hidden">
+                <span class="linetop" style="background: black;"></span>
+                <span class="linemiddle" style="background: black;"></span>
+                <span class="linebottom" style="background: black;"></span>
+            </button>
+
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="menu-wrap" class="md:hidden">
+            <div class="text-lg flex flex-col items-center py-8 mt-5 gap-8 rounded-sm font-semibold">
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'reservations' %}">Reservations</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'about' %}">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="title" class="unfade flex flex-1 flex-col justify-end items-center text-black ffPD">
+        <div class="text-4xl sm:text-6xl md:text-7xl mb-6">
+            Page Not Found
+        </div>
+        <button class="border border-black rounded-none p-3 px-6 font-semibold text-black text-base md:text-lg bg-transparent mb-4 resbtn">
+            <a href="{% url 'index' %}">Go Back to HomePage</a>
+        </button>
+    </div>
+
+</section>
+
+<section id="footer" class="flex justify-center items-end text-center bg-cover relative h-[50vh]">
+    <div class="container mx-auto py-5">
+        <h4 class="text-2xl lg:text-4xl font-bold ffPD">FOLLOW US ON SOCIAL MEDIA</h4>
+        <div class="mb-4 mt-3 text-base lg:text-xl">
+            <a href="https://www.instagram.com/sala_bianca1998/">
+                <i class="lastIcon icon fa-brands fa-instagram fa-xl"></i>
+            </a>
+            <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                <i class="lastIcon icon fa-brands fa-facebook fa-xl"></i>
+            </a>
+        </div>
+        <h5 class="font-semibold ">© SalaBianca.com, Inc. All rights reserved.</h5>
+    </div>
+</section>
+
+
+{% endblock %}

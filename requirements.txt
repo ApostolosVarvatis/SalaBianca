@@ -1,0 +1,11 @@
+django
+django-widget-tweaks
+Pillow
+mysqlclient
+
+# For some extra tests you can:
+# 1. Install a chrome webdriver compatible with your chrome version
+# 2. Uncomment the import lines in tests.py of selenium, os and pathlib and of the tests under #Selenium Tests
+# 3. pip install selenium 
+# 4. pip install os 
+# 5. pip install pathlib 

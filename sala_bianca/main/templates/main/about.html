@@ -1,0 +1,87 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body %}
+
+<section id="aboutnavbar" class="bg-cover h-[50vh] md:h-[75vh] flex flex-col scrollAnimation overflow-hidden">
+    <!-- Navbar -->
+    <nav class="relative container mx-auto p-6">
+        <!-- Flexbox Container -->
+        <div class="flex items-center justify-between">
+            <a href="{% url 'index' %}" class="flex items-center text-white">
+                <div class="sala text-4xl font-medium italic ffPD">Sala Bianca</div>
+            </a>
+
+            <!-- Menu Items -->
+            <div class="hidden md:flex space-x-7 lg:space-x-12 font-semibold text-white lg:pe-4">
+                <a href="{% url 'menu' %}" class="relative hoveredover">Menu</a>
+                <a href="{% url 'reservations' %}" class="relative hoveredover">Reservations</a>
+                <a href="{% url 'contact' %}" class="relative hoveredover">Contact</a>
+                <a href="{% url 'about' %}" class="relative hoveredover">About Us</a>
+
+                <!-- Icons -->
+                <div class="hidden md:block space-x-2">
+                    <a href="https://www.instagram.com/sala_bianca1998/">
+                        <i class="firstIcon icon fa-brands fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/Sala-Bianca-1998/100054220372066/">
+                        <i class="firstIcon icon fa-brands fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="{% url 'contact' %}">
+                        <i class="firstIcon icon fa-regular fa-envelope fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <button id="responsiveButton" class="block md:hidden">
+                <span class="linetop"></span>
+                <span class="linemiddle"></span>
+                <span class="linebottom"></span>
+            </button>
+
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="menu-wrap" class="md:hidden">
+            <div id="menu" class="text-lg flex flex-col items-center py-8 mt-5 gap-8 rounded-sm font-semibold">
+                <a href="{% url 'menu' %}">Menu</a>
+                <a href="{% url 'reservations' %}">Reservations</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'about' %}">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="title" class="unfade flex flex-1 justify-center items-center text-5xl md:text-7xl text-white ffPD">ABOUT</div>
+
+</section>
+
+<section id="history-gallery" class="bg-cover">
+    <div id="photoText" class="opacity-0 container mx-auto py-14 md:px-10 lg:px-16 flex flex-wrap lg:flex-nowrap justify-center items-center">
+        <div id="photo" class="m-8"></div>
+        <div class="text-center lg:text-start px-8 lg:px-0 lg:py-20">
+            <h3 class="text-3xl font-medium mb-5 ffPD">SALA BIANCA ESTABLISHED IN 1998.</h3>
+            <h6 class="text-base font-medium ffPD lg:leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora blanditiis 
+                aliquid ipsa maiores temporibus unde pariatur praesentium ab, optio nam, 
+                similique sunt aliquam perspiciatis aut est quam doloribus odit doloremque.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit cumque, qui 
+                culpa eveniet earum, neque cum odio temporibus distinctio veniam natus velit 
+                amet pariatur ut suscipit dicta, aliquid quaerat repudiandae.
+            </h6>
+        </div>
+    </div>
+
+    <div id="gallery" class="grid gap-4 p-4">
+        <div class="image bg-cover card-big aspect-square" style="background-image: url('/static/images/about/coffee.jpg'); background-position: center center;"></div>
+        <div class="image bg-cover card-big aspect-square" style="background-image: url('/static/images/about/chocolate.jpg'); background-position: center 75%;"></div>
+        <div class="image bg-cover card-small aspect-square" style="background-image: url('/static/images/about/beer.jpg'); background-position: center center;"></div>
+        <div class="image bg-cover card-small aspect-square" style="background-image: url('/static/images/about/barbottles.jpg'); background-position: center center;"></div>
+        <div class="image bg-cover card-small aspect-square" style="background-image: url('/static/images/about/cocktail.jpg'); background-position: center bottom;"></div>
+    </div>
+</section>
+
+
+
+{% endblock %}
